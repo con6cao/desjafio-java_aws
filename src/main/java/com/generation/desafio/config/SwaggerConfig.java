@@ -6,27 +6,26 @@ import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Collections;
 
 @Configuration
 @EnableWebMvc
-public class SwaggerConfig implements WebMvcConfigurer {
+public class SwaggerConfig {
     @Bean
-    public OpenAPI apiAluno() {
+    public OpenAPI openAPI() {
         return new OpenAPI()
-                .info(
-                        new Info()
-                                .title("apiAluno")
-                                .description("depois escrevo ")
-                                .version("v0.0.1")
-                                .contact(new
-                                        Contact()
-                                        .name("")
-                                        .email("")
-                                        .url("")));
+                .info(new Info()
+                        .title("API Aluno")
+                        .description("Exemplo de gerenciamento de alunos")
+                        .contact(new Contact()
+                                .name("Caio Vinicius")
+                                .email("caio.dev.conceicao@gmail.com")
+                                .url("https://con6cao.github.io/portifolium/"))
+                        .version("1.0")
+                );
     }
+}
 /*   private ApiInfo customInfo() {
         return new ApiInfo(
                 "ApiAl",
@@ -40,4 +39,4 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     }*/
 
-}
+
