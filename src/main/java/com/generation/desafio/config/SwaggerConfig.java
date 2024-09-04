@@ -14,15 +14,18 @@ import java.util.Collections;
 public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
+        record Logo(String url) {
+        }
         return new OpenAPI()
+
                 .info(new Info()
                         .title("API Aluno")
                         .description("Exemplo de gerenciamento de alunos")
+                        .extensions(Collections.singletonMap("x-logo", new Logo("http://localhost:8080/logo.png")))
                         .contact(new Contact()
                                 .name("Caio Vinicius")
                                 .email("caio.dev.conceicao@gmail.com")
                                 .url("https://con6cao.github.io/portifolium/"))
-                        .version("1.0")
                 );
     }
 }

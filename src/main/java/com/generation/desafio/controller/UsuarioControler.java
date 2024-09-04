@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping("/usuario")
+@RequestMapping()
 @Tag(name = "Cadastro para Aluno")
 @RestController
-public class UsuarioControler implements UsuarioControlerImp {
+public class UsuarioControler {
     private final UsuarioService usuarioService;
 
     public UsuarioControler(UsuarioService usuarioService) {
@@ -25,35 +25,42 @@ public class UsuarioControler implements UsuarioControlerImp {
     }
 
     @PostMapping(path = "/aluno")
+    @Operation(summary = "Registrar Aluno", description = "Todos os cadastro de alunos serão feitos por essa rota")
+    @ApiResponses(value = {@ApiResponse(responseCode = "201", description = "Created")})
     public ResponseEntity inserir(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         usuarioService.inserir(usuarioDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioDTO);
     }
 
-    @GetMapping(value = "/aluno", produces = "application/json")
+    @GetMapping(path = "/aluno/{id}")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
+    @Operation(summary = "Buscar o Aluno", description = "Todos os cadastro de alunos serão feitos por essa rota")
     public ResponseEntity<UsuarioDTO> buscarById(@PathVariable("id") Long id) {
         UsuarioDTO usuarioDTO = usuarioService.buscarById(id);
         return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
     }
 
     @GetMapping
-    @Operation(summary = "Lista todos dos Alunos")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "successful operation")})
+    @Operation(summary = "Buscar varios Alunos", description = "Todos os cadastro de alunos serão feitos por essa rota")
     public ResponseEntity<List<UsuarioDTO>> buscar() {
         List<UsuarioDTO> usuarios = usuarioService.buscarAll();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
     @PutMapping(path = "/aluno/{id}")
-    @Operation(summary = "Atualizar Cadastro dos Alunos")
+    @ApiResponses(value = {@ApiResponse(responseCode = "202", description = "Accepted")})
+    @Operation(summary = "Atualizar Cadastro do Alunos")
     public ResponseEntity<UsuarioDTO> atualizar(@PathVariable("id") Long id,
                                                 @RequestBody UsuarioDTO usuarioDTO) {
         usuarioDTO.toModel();
         UsuarioDTO atualiarUsuario = usuarioService.atualizar(id, usuarioDTO);
-        return new ResponseEntity<>(atualiarUsuario, HttpStatus.OK);
+        return new ResponseEntity<>(atualiarUsuario, HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping(path = "/aluno/{id}")
-    @Operation(summary = "deletar dos Aluno")
+    @Operation(summary = "Deletar o Aluno")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
     public ResponseEntity<List<Usuario>> deletar() {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
