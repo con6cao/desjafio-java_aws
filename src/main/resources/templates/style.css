@@ -7,17 +7,26 @@
 }
 
     .botao {
-	font-size: .3rem;
-	font-weight: 500;
-	letter-spacing: 1.9px;
-	text-transform: uppercase;
-	align-items: center;
-	flex-direction: column;
-	width: 70%;
-padding: 12px 28px;
-	border-radius: 6px;
-	transition: .25s;
+
+        text-align: center;
+    	padding-left: 5%;
+    	padding-right: 5%;
+    	font-size: 0.6rem;
+    	font-weight: bold;
+    	text-transform: uppercase;
+    	color: #fff;
+    	background-color: #2F8132;
+
 }
+.botao a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: 400;
+	font-size: 1.2rem;
+	margin-bottom: .3rem;}
 
 .botao:hover {
 	transform: translate(0, .22rem);
@@ -36,7 +45,7 @@ padding: 12px 28px;
 }
 
 .principal {
-	background-color: #7d1a0c;
+	background-color: ##263238;
 }
 
 .quemsomos {
@@ -44,11 +53,12 @@ padding: 12px 28px;
 }
 
 .contato {
-	background-color: #9b6456;
+	background-color: #263238;
 }
 
 .projetos {
-	background-color: #b39d69;
+	background-color: #263238;
+	padding: 30% 10%;
 }
 
 .serviços {
@@ -64,15 +74,20 @@ padding: 12px 28px;
 
 }
 
+
 .chamada__titulo {
 	color: #25ff1e;
 	font-weight: 500;
 	font-size: 4.9rem;
 	margin-bottom: 0.3rem;
 }
+.chamada__titulo p {
+    color: #3f3f3f;
+    }
+
 
 .chamada__titulo--destaque {
-	color: #fff;
+	color: #42a40d;
 }
 
 
@@ -86,6 +101,14 @@ padding: 12px 28px;
 		padding-bottom: 29.5rem;
 
 	}
+
+.botao a{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+
+}
 
 	.corpos__chamada {
 		width: 300px;
@@ -117,12 +140,19 @@ padding: 12px 28px;
 		font-size: 2.5rem;
 	}
 
+.projetos {
+	background-color: #263238;
+	padding: 80% 80%;
+}
+
 }
 
 @media(min-width:1440px) {
-	.corpos__lista {
-		grid-template-columns: repeat(6, 11rem);
-	}
+
+.projetos {
+	background-color: #263238;
+	padding: 80% 80%;
+}
 }
 
 @media(min-width:1600px) {

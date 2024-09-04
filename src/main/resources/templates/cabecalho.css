@@ -13,15 +13,14 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 0.23em;
 	color: #fff;
-	background-color: #a86b4c;
-		border-radius: 10px;
+	background-color: #fafafa;
 
 }
 
 .cabecalho a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #3f3f3f  ;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
